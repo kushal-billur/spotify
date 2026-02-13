@@ -1,0 +1,858 @@
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Circular Std', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    background-color: #121212;
+    color: #fff;
+    overflow: hidden;
+}
+
+.app {
+    display: flex;
+    height: 100vh;
+    background-color: #121212;
+}
+
+/* Scrollbar Styles */
+::-webkit-scrollbar {
+    width: 12px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #5a5a5a;
+    border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #7a7a7a;
+}
+
+/* Sidebar Styles */
+.sidebar {
+    width: 240px;
+    background-color: #000;
+    display: flex;
+    flex-direction: column;
+    padding: 8px 0;
+    overflow-y: auto;
+    flex-shrink: 0;
+}
+
+.sidebar__header {
+    display: flex;
+    align-items: center;
+    padding: 16px 24px;
+    gap: 12px;
+}
+
+.spotify-logo {
+    width: 32px;
+    height: 32px;
+}
+
+.app-name {
+    font-size: 24px;
+    font-weight: 700;
+    color: #fff;
+}
+
+.sidebar__nav {
+    flex: 1;
+    padding: 0 12px;
+}
+
+.nav-section {
+    margin-bottom: 24px;
+}
+
+.nav-item {
+    display: flex;
+    align-items: center;
+    padding: 0 16px;
+    height: 40px;
+    color: #b3b3b3;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: background-color 0.2s;
+    margin-bottom: 2px;
+}
+
+.nav-item:hover {
+    background-color: #282828;
+    color: #fff;
+}
+
+.nav-item.active {
+    background-color: #282828;
+    color: #fff;
+}
+
+.nav-icon {
+    width: 24px;
+    height: 24px;
+    margin-right: 16px;
+    flex-shrink: 0;
+}
+
+.create-playlist {
+    background: linear-gradient(135deg, #450af5, #c4efd9);
+}
+
+.liked-songs {
+    background: linear-gradient(135deg, #e91e63, #f44336);
+}
+
+.nav-divider {
+    height: 1px;
+    background-color: #282828;
+    margin: 8px 0;
+}
+
+/* Sidebar Playlists */
+.sidebar__playlists {
+    flex: 1;
+    overflow-y: auto;
+    padding: 0 12px;
+}
+
+.playlist-section {
+    margin-bottom: 16px;
+}
+
+.section-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 16px;
+    margin-bottom: 4px;
+}
+
+.section-title {
+    color: #b3b3b3;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+.add-btn {
+    background: none;
+    border: none;
+    color: #b3b3b3;
+    cursor: pointer;
+    padding: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: background-color 0.2s;
+}
+
+.add-btn:hover {
+    background-color: #282828;
+    color: #fff;
+}
+
+.add-btn svg {
+    width: 16px;
+    height: 16px;
+}
+
+.playlist-list {
+    display: flex;
+    flex-direction: column;
+}
+
+.playlist-item {
+    padding: 8px 16px;
+    color: #b3b3b3;
+    text-decoration: none;
+    font-size: 14px;
+    line-height: 20px;
+    border-radius: 4px;
+    transition: background-color 0.2s;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.playlist-item:hover {
+    background-color: #282828;
+    color: #fff;
+}
+
+/* Sidebar Footer */
+.sidebar__footer {
+    padding: 16px 12px;
+    border-top: 1px solid #282828;
+}
+
+.user-profile {
+    display: flex;
+    align-items: center;
+    padding: 8px;
+    background-color: #282828;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.user-profile:hover {
+    background-color: #3e3e3e;
+}
+
+.user-avatar {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    margin-right: 12px;
+}
+
+.user-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.username {
+    font-size: 14px;
+    font-weight: 600;
+    color: #fff;
+    line-height: 1.2;
+}
+
+.user-status {
+    font-size: 11px;
+    color: #b3b3b3;
+    line-height: 1.2;
+}
+
+.dropdown-btn {
+    background: none;
+    border: none;
+    color: #b3b3b3;
+    cursor: pointer;
+    padding: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: background-color 0.2s;
+}
+
+.dropdown-btn:hover {
+    background-color: #3e3e3e;
+    color: #fff;
+}
+
+.dropdown-btn svg {
+    width: 16px;
+    height: 16px;
+}
+
+/* Main Content */
+.main-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    background: linear-gradient(to bottom, #1f1f1f 0%, #121212 100%);
+    overflow: hidden;
+}
+
+.main-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 32px;
+    background-color: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+}
+
+.header-left {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.nav-btn {
+    background-color: #000;
+    border: none;
+    color: #fff;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: opacity 0.2s;
+    opacity: 0.7;
+}
+
+.nav-btn:hover {
+    opacity: 1;
+}
+
+.nav-btn svg {
+    width: 16px;
+    height: 16px;
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.upgrade-btn, .install-btn {
+    background-color: transparent;
+    border: 1px solid #818181;
+    color: #fff;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: border-color 0.2s, transform 0.2s;
+}
+
+.upgrade-btn:hover, .install-btn:hover {
+    border-color: #fff;
+    transform: scale(1.05);
+}
+
+.user-dropdown {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background-color: #282828;
+    padding: 4px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.user-dropdown:hover {
+    background-color: #3e3e3e;
+}
+
+.dropdown-avatar {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+}
+
+.dropdown-username {
+    font-size: 14px;
+    font-weight: 600;
+    max-width: 100px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.dropdown-arrow {
+    width: 16px;
+    height: 16px;
+    color: #fff;
+}
+
+/* Content Area */
+.content {
+    flex: 1;
+    overflow-y: auto;
+    padding: 24px 32px;
+}
+
+.hero-section h1 {
+    font-size: 39px;
+    font-weight: 700;
+    margin-bottom: 24px;
+}
+
+.recent-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 24px;
+    margin-bottom: 40px;
+}
+
+.recent-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #282828;
+    padding: 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.recent-item:hover {
+    background-color: #3e3e3e;
+}
+
+.recent-item img {
+    width: 100%;
+    aspect-ratio: 1;
+    border-radius: 4px;
+    margin-bottom: 12px;
+    object-fit: cover;
+}
+
+.recent-item span {
+    font-size: 14px;
+    font-weight: 600;
+    text-align: center;
+    color: #fff;
+}
+
+/* Section Styles */
+.section {
+    margin-bottom: 40px;
+}
+
+.section-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 24px;
+}
+
+.section-header h2 {
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.show-all {
+    color: #b3b3b3;
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    transition: color 0.2s;
+}
+
+.show-all:hover {
+    color: #fff;
+    text-decoration: underline;
+}
+
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 24px;
+}
+
+.card {
+    background-color: #282828;
+    padding: 16px;
+    border-radius: 8px;
+    transition: background-color 0.3s;
+    cursor: pointer;
+}
+
+.card:hover {
+    background-color: #3e3e3e;
+}
+
+.card:hover .play-btn {
+    opacity: 1;
+    transform: translateY(-4px);
+}
+
+.card-image {
+    position: relative;
+    margin-bottom: 16px;
+}
+
+.card-image img {
+    width: 100%;
+    aspect-ratio: 1;
+    border-radius: 4px;
+    object-fit: cover;
+}
+
+.play-btn {
+    position: absolute;
+    bottom: 8px;
+    right: 8px;
+    width: 48px;
+    height: 48px;
+    background-color: #1ED760;
+    border: none;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    opacity: 0;
+    transition: opacity 0.3s, transform 0.3s;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+.play-btn:hover {
+    background-color: #1fdf64;
+    transform: translateY(-8px) scale(1.05);
+}
+
+.play-btn svg {
+    width: 24px;
+    height: 24px;
+    color: #000;
+    margin-left: 2px;
+}
+
+.card-info h3 {
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 4px;
+    color: #fff;
+    line-height: 1.2;
+}
+
+.card-info p {
+    font-size: 12px;
+    color: #b3b3b3;
+    line-height: 1.4;
+    display: -webkit-box;
+    display: box;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    -webkit-box-orient: vertical;
+    box-orient: vertical;
+    overflow: hidden;
+}
+
+/* Now Playing Bar */
+.now-playing-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 90px;
+    background-color: #181818;
+    border-top: 1px solid #282828;
+    padding: 0 16px;
+}
+
+.now-playing-left {
+    display: flex;
+    align-items: center;
+    flex: 1;
+    min-width: 180px;
+    max-width: 300px;
+}
+
+.track-info {
+    display: flex;
+    align-items: center;
+    min-width: 0;
+    flex: 1;
+}
+
+.track-image {
+    width: 56px;
+    height: 56px;
+    border-radius: 4px;
+    margin-right: 14px;
+    object-fit: cover;
+}
+
+.track-details {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    flex: 1;
+}
+
+.track-name {
+    font-size: 14px;
+    color: #fff;
+    margin-bottom: 4px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.artist-name {
+    font-size: 11px;
+    color: #b3b3b3;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.track-controls {
+    display: flex;
+    align-items: center;
+    margin-left: 12px;
+}
+
+.control-btn {
+    background: none;
+    border: none;
+    color: #b3b3b3;
+    cursor: pointer;
+    padding: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: color 0.2s, transform 0.2s;
+}
+
+.control-btn:hover {
+    color: #fff;
+    transform: scale(1.1);
+}
+
+.control-btn svg {
+    width: 16px;
+    height: 16px;
+}
+
+.now-playing-center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1;
+    max-width: 712px;
+    padding: 0 32px;
+}
+
+.playback-controls {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 8px;
+}
+
+.main-play-btn {
+    width: 32px;
+    height: 32px;
+    background-color: #fff;
+    color: #000;
+    border-radius: 50%;
+    padding: 6px;
+}
+
+.main-play-btn:hover {
+    background-color: #f0f0f0;
+    transform: scale(1.1);
+}
+
+.progress-container {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    width: 100%;
+}
+
+.time {
+    font-size: 11px;
+    color: #b3b3b3;
+    min-width: 40px;
+    text-align: center;
+}
+
+.progress-bar {
+    flex: 1;
+    height: 4px;
+    background-color: #5e5e5e;
+    border-radius: 2px;
+    position: relative;
+    cursor: pointer;
+}
+
+.progress {
+    height: 100%;
+    background-color: #fff;
+    border-radius: 2px;
+    width: 40%;
+    position: relative;
+}
+
+.progress::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 12px;
+    height: 12px;
+    background-color: #fff;
+    border-radius: 50%;
+    opacity: 0;
+    transition: opacity 0.2s;
+}
+
+.progress-bar:hover .progress::after {
+    opacity: 1;
+}
+
+.now-playing-right {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    flex: 1;
+    min-width: 180px;
+    max-width: 300px;
+}
+
+.extra-controls {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.volume-control {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.volume-slider {
+    width: 100px;
+    height: 4px;
+    background-color: #5e5e5e;
+    border-radius: 2px;
+    position: relative;
+    cursor: pointer;
+}
+
+.volume-progress {
+    height: 100%;
+    background-color: #fff;
+    border-radius: 2px;
+    width: 70%;
+    position: relative;
+}
+
+.volume-progress::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 10px;
+    height: 10px;
+    background-color: #fff;
+    border-radius: 50%;
+    opacity: 0;
+    transition: opacity 0.2s;
+}
+
+.volume-slider:hover .volume-progress::after {
+    opacity: 1;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .sidebar {
+        width: 200px;
+    }
+    
+    .card-grid {
+        grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    }
+    
+    .recent-grid {
+        grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    }
+}
+
+@media (max-width: 768px) {
+    .sidebar {
+        position: fixed;
+        left: -240px;
+        top: 0;
+        height: 100vh;
+        z-index: 1000;
+        transition: left 0.3s;
+    }
+    
+    .sidebar.open {
+        left: 0;
+    }
+    
+    .main-content {
+        margin-left: 0;
+    }
+    
+    .now-playing-bar {
+        flex-direction: column;
+        height: auto;
+        padding: 12px;
+    }
+    
+    .now-playing-left,
+    .now-playing-right {
+        max-width: 100%;
+        min-width: auto;
+    }
+    
+    .now-playing-center {
+        padding: 8px 0;
+        max-width: 100%;
+    }
+    
+    .content {
+        padding: 16px;
+    }
+    
+    .hero-section h1 {
+        font-size: 24px;
+    }
+    
+    .card-grid,
+    .recent-grid {
+        grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+        gap: 16px;
+    }
+    
+    .header-right {
+        gap: 8px;
+    }
+    
+    .upgrade-btn,
+    .install-btn {
+        display: none;
+    }
+}
+
+@media (max-width: 480px) {
+    .content {
+        padding: 8px;
+    }
+    
+    .card-grid,
+    .recent-grid {
+        grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+        gap: 12px;
+    }
+    
+    .card {
+        padding: 8px;
+    }
+    
+    .play-btn {
+        width: 40px;
+        height: 40px;
+    }
+    
+    .play-btn svg {
+        width: 20px;
+        height: 20px;
+    }
+}
