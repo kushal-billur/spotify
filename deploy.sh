@@ -29,7 +29,7 @@ fi
 echo "[deploy] Starting container ${CONTAINER_NAME} on http://localhost:${PORT} ..."
 docker run -d \
   --name "${CONTAINER_NAME}" \
-  -p "${PORT}:80" \
+  -p "${PORT}:8080" \
   "${IMAGE_NAME}"
 
 # Final status
