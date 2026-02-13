@@ -9,8 +9,8 @@ ARG APP_DIR=/usr/share/nginx/html
 # Clean default Nginx content
 RUN rm -rf ${APP_DIR}/*
 
-# Copy static site from local ./code into Nginx html directory
-COPY code/ ${APP_DIR}/
+# Copy static site from current directory into Nginx html directory
+COPY . ${APP_DIR}/
 
 # Expose HTTP port
 EXPOSE 80
